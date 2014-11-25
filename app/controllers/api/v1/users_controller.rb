@@ -2,6 +2,7 @@ module Api
   module V1
     class UsersController < ApplicationController
       respond_to :json
+      skip_before_filter  :verify_authenticity_token
       
       def create
         @user = User.new(user_parmas)
