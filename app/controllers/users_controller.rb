@@ -24,7 +24,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    user_params.ip_address = request.remote_ip
+    puts "*********************************************"
+    puts request.remote_ip
+    user_params[:ip_address] = "110.23.59.205"
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -70,6 +72,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :city, :state, :country, :zipcode)
+      params.require(:user).permit(:first_name, :last_name, :email, :city, :state, :country, :zipcode, :ip_address, :lat, :lon)
     end
 end

@@ -5,7 +5,15 @@ module Api
       skip_before_filter  :verify_authenticity_token
       
       def create
-        @user = User.new(user_parmas)
+
+        puts "*********************************************"
+        puts request.remote_ip
+        @user = User.new(user_params)
+
+        @user.first_name = "asdasd"
+        @user.ip_address = "110.23.59.205"
+        puts Geocoder.search("204.57.220.1")
+        puts @user.inspect
         if @user.save
           respond_to do |format|
             format.json { render :json => @user }
@@ -41,8 +49,8 @@ module Api
       end
 
       private
-        def user_parmas
-          params.require(:user).permit(:first_name, :last_name, :email, :city, :state, :country, :zipcode)
+        def user_params
+          params.require(:user).permit(:first_name, :last_name, :email, :city, :state, :country, :zipcode, :ip_address, :lat, :lon)
         end
       
     end
