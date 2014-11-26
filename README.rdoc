@@ -1,6 +1,6 @@
 == README
 
 ThinkingRemote API for managing users.  Each user record contains first_name, last_name, 
-email, city, state, country, zipcode.
+email, city, state, country, zipcode, latitude, longitude. 
 
-
+GET /api/v1/users will return a list of all subscribers locations.
