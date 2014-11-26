@@ -42,7 +42,7 @@ module Api
 
       private
         def user_parmas
-          params.require(:user).permit(:first_name, :last_name, :email, :city, :state, :country, :zipcode)
+          params.require(:user).permit(:first_name, :last_name, :email, :city, :state, :country, :zipcode, :lon, :lat, :ip_address)
         end
       
     end
