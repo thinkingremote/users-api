@@ -5,13 +5,14 @@ module Api
       skip_before_filter  :verify_authenticity_token
       
       def create
-
         @user = User.new(user_params)
         @user.ip_address = request.remote_ip
         if @user.save
           respond_to do |format|
             format.json { render :json => @user }
           end
+        else
+          "jojo"
         end
       end
       
