@@ -12,7 +12,7 @@ module Api
             format.json { render :json => @user }
           end
         else
-          "jojo"
+          render json: @user.errors
         end
       end
       
