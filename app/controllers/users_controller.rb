@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    user_params[:ip_address] = request.remote_ip
     @user = User.new(user_params)
 
     respond_to do |format|
