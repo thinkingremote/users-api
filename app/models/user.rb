@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX, message: "Invalid email address" },
                     uniqueness: { case_sensitive: false, message: "Email already exists in the system" }
                     
+  def validation
+    errors.add_to_base("jojojojo")
+  end
+                    
 end
