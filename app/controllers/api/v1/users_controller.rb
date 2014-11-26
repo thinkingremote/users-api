@@ -6,14 +6,8 @@ module Api
       
       def create
 
-        puts "*********************************************"
-        puts request.remote_ip
         @user = User.new(user_params)
-
-        @user.first_name = "asdasd"
-        @user.ip_address = "110.23.59.205"
-        puts Geocoder.search("204.57.220.1")
-        puts @user.inspect
+        @user.ip_address = request.remote_ip
         if @user.save
           respond_to do |format|
             format.json { render :json => @user }

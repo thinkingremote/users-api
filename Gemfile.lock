@@ -51,6 +51,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    maxminddb (0.1.5)
     mime-types (1.25.1)
     minitest (5.4.3)
     multi_json (1.10.1)
@@ -124,6 +125,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
+  maxminddb
   pg
   rails (= 4.1.1)
   rails_12factor
