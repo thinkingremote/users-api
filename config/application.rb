@@ -19,13 +19,14 @@ module UsersApi
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
+    config.middleware.insert_before 0, Rack::Cors, logger: Rails.logger do
       allow do
         origins '*'
+
         resource '*',
-          :headers => :any,
-          :methods => [:get, :post, :delete, :put, :options, :head],
-          :max_age => 0
+          headers: :any,
+          methods: [:get, :post, :delete, :put, :options, :head],
+          max_age: 1728000
       end
     end
   end
