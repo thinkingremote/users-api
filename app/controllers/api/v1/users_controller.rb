@@ -8,7 +8,7 @@ module Api
         @user = User.new(user_params)
         @user.ip_address = request.remote_ip
         if @user.save
-          UserMailer.tagged_message.deliver
+          UserMailer.welcome_email(@user).deliver
           respond_to do |format|
             format.json { render :json => @user }
           end
