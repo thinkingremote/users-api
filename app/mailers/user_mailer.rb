@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
    
   def welcome_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Welcome to ThinkingRemote')
+    mail(to: @user.email, subject: 'You just got 5.6% closer to the rest of the world')
   end
   
 end
