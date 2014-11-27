@@ -2,8 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-config.action_mailer.delivery_method = :postmark
-config.action_mailer.postmark_settings = { :api_key => ENV["postmark"] }
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -22,6 +20,10 @@ module UsersApi
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { :api_key => ENV["postmark"] }
+
+
     config.middleware.insert_before 0, Rack::Cors, logger: Rails.logger do
       allow do
         origins '*'
