@@ -10,10 +10,18 @@ module Api
         if @user.save
           UserMailer.welcome_email(@user).deliver
           respond_to do |format|
-            format.json { render :json => @user }
+            format.json {
+              render :json => {
+                status: 'ok',
+                user: @user
+              }
+            }
           end
         else
-          render json: @user.errors
+          render json: {
+            status: 'error',
+            message: @user.errors.messages[:email][0]
+          }
         end
       end
       
